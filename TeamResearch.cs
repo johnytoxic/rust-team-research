@@ -18,7 +18,11 @@
                 foreach (ulong member in team.members)
                 {
                     BasePlayer memberPlayer = BasePlayer.FindByID(member);
-                    memberPlayer.blueprints.Unlock(node.itemDef);
+                    if (null != memberPlayer)
+                    {
+                        // member is online
+                        memberPlayer.blueprints.Unlock(node.itemDef);
+                    }
                 }
             }
         }
